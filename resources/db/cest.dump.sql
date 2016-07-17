@@ -29,6 +29,7 @@ CREATE TABLE `location` (
   `name` varchar(45) DEFAULT NULL,
   `submitDate` datetime DEFAULT NULL,
   `user_info_id` int(11) NOT NULL,
+  `type` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`),
   KEY `FK714F9FB5FA974243` (`user_info_id`),
@@ -42,8 +43,40 @@ CREATE TABLE `location` (
 
 LOCK TABLES `location` WRITE;
 /*!40000 ALTER TABLE `location` DISABLE KEYS */;
-INSERT INTO `location` VALUES (1,41.976816,-87.659916,'n1',NULL,2),(2,41.93967,-87.655167,'n2',NULL,3),(3,42.002707,-87.661236,NULL,NULL,4),(4,42.102707,-87.601236,NULL,NULL,5);
 /*!40000 ALTER TABLE `location` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `report`
+--
+
+DROP TABLE IF EXISTS `report`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `report` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `unit` varchar(45) DEFAULT NULL,
+  `comment` varchar(200) DEFAULT NULL,
+  `year` varchar(100) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `file` blob,
+  `param1` varchar(45) DEFAULT NULL,
+  `param2` varchar(45) DEFAULT NULL,
+  `location_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`location_id`),
+  KEY `fk_report_location1_idx` (`location_id`),
+  CONSTRAINT `fk_report_location1` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `report`
+--
+
+LOCK TABLES `report` WRITE;
+/*!40000 ALTER TABLE `report` DISABLE KEYS */;
+/*!40000 ALTER TABLE `report` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -75,7 +108,7 @@ CREATE TABLE `user_info` (
   KEY `FK1437D8A23F6A588C` (`zone_id`),
   CONSTRAINT `FK1437D8A23F6A588C` FOREIGN KEY (`zone_id`) REFERENCES `zone` (`id`),
   CONSTRAINT `fk_user_info_zone1` FOREIGN KEY (`zone_id`) REFERENCES `zone` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,4 +163,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-07-14 10:30:29
+-- Dump completed on 2016-07-17 12:34:23

@@ -1,6 +1,6 @@
 package com.model;
 
-// Generated Jul 8, 2016 10:13:14 AM by Hibernate Tools 3.4.0.CR1
+// Generated Jul 17, 2016 12:17:38 PM by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
@@ -220,29 +220,5 @@ public class UserInfo implements java.io.Serializable {
 	public void setLocations(Set<Location> locations) {
 		this.locations = locations;
 	}
-
-	@Override
-	public String toString() {
-		return "UserInfo ["
-				+ (id != null ? "id=" + id + ", " : "")
-				+ (zone != null ? "zone=" + zone + ", " : "")
-				+ (userId != null ? "userId=" + userId + ", " : "")
-				+ (password != null ? "password=" + password + ", " : "")
-				+ (type != null ? "type=" + type + ", " : "")
-				+ (address1 != null ? "address1=" + address1 + ", " : "")
-				+ (address2 != null ? "address2=" + address2 + ", " : "")
-				+ (address3 != null ? "address3=" + address3 + ", " : "")
-				+ (city != null ? "city=" + city + ", " : "")
-				+ (state != null ? "state=" + state + ", " : "")
-				+ (pincode != null ? "pincode=" + pincode + ", " : "")
-				+ (mobileNumber != null ? "mobileNumber=" + mobileNumber + ", "
-						: "")
-				+ (country != null ? "country=" + country + ", " : "")
-				+ (dob != null ? "dob=" + dob + ", " : "")
-				+ (param1 != null ? "param1=" + param1 + ", " : "")
-				+ (locations != null ? "locations=" + locations : "") + "]";
-	}
-	
-	
 
 }

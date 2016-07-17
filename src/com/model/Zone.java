@@ -1,6 +1,6 @@
 package com.model;
 
-// Generated Jul 8, 2016 10:13:14 AM by Hibernate Tools 3.4.0.CR1
+// Generated Jul 17, 2016 12:17:38 PM by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,6 +24,7 @@ public class Zone implements java.io.Serializable {
 	private String name;
 	private String desc;
 	private Set<UserInfo> userInfos = new HashSet<UserInfo>(0);
+	private Set<UserInfo> userInfos_1 = new HashSet<UserInfo>(0);
 
 	public Zone() {
 	}
@@ -32,10 +33,12 @@ public class Zone implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public Zone(String name, String desc, Set<UserInfo> userInfos) {
+	public Zone(String name, String desc, Set<UserInfo> userInfos,
+			Set<UserInfo> userInfos_1) {
 		this.name = name;
 		this.desc = desc;
 		this.userInfos = userInfos;
+		this.userInfos_1 = userInfos_1;
 	}
 
 	@Id
@@ -74,6 +77,15 @@ public class Zone implements java.io.Serializable {
 
 	public void setUserInfos(Set<UserInfo> userInfos) {
 		this.userInfos = userInfos;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "zone")
+	public Set<UserInfo> getUserInfos_1() {
+		return this.userInfos_1;
+	}
+
+	public void setUserInfos_1(Set<UserInfo> userInfos_1) {
+		this.userInfos_1 = userInfos_1;
 	}
 
 }

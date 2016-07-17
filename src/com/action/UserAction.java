@@ -2,16 +2,14 @@ package com.action;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.dao.LocationDao;
 import com.dao.UserInfoDao;
 import com.dao.ZoneDao;
-import com.model.Location;
+
 import com.model.UserInfo;
 import com.model.Zone;
 import com.opensymphony.xwork2.Preparable;
